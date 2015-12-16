@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS Filters</title>
+	<style>
+		div {
+			position: relative;
+			height: 320px;
+		}		
+		.image {
+			background-image: url(image1.png);
+			width: 480px;
+			height: 300px;
+			position: absolute;
+		}
+		.image.right {
+			left: 240px;	
+			width: 240px;		
+			background-position: 240px 0px;
+		}
+	</style>
+	
+</head>
+<body style="filter: invert(100%)">
+	<style>
+		.intro {
+			width: 120px;
+			height: 300px;
+			position: absolute;
+		}
+	</style>
+		
+	<div>
+		<div class="intro image" style="left: 0px; background-position: 0px 0px; filter: sepia(100%)"></div>
+		<div class="intro image" style="left: 120px; background-position: -120px 0px; filter: contrast(300%)"></div>
+		<div class="intro image" style="left: 240px; background-position: -240px 0px; filter: saturate(500%)"></div>
+		<div class="intro image" style="left: 360px; background-position: -360px 0px; filter: hue-rotate(40deg)"></div>
+	</div>
+
+
+	<div>
+		<div class="image left"></div>
+		<div class="image right" style="filter: grayscale(100%)"></div>
+	</div>
+
+	<div>
+		<div class="image left"></div>
+		<div class="image right" style="filter: sepia(100%)"></div>
+	</div>
+
+	<div>
+		<div class="image left"></div>
+		<div class="image right" style="filter: contrast(300%)"></div>
+	</div>
+
+	<div>
+		<div class="image left"></div>
+		<div class="image right" style="filter: saturate(500%)"></div>
+	</div>
+
+	<div>
+		<div class="image left"></div>
+		<div class="image right" style="filter: blur(3px)"></div>
+	</div>
+
+	<div>
+		<div class="image left"></div>
+		<div class="image right" style="filter: hue-rotate(40deg)"></div>
+	</div>
+
+</body>
+</html>

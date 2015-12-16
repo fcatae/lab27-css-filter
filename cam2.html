@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>WebCam</title>
+	<link rel="stylesheet" href="effects.css">
+</head>
+<body>
+	<video autoplay></video>
+	<script>
+		var video = document.querySelector('video');
+		
+		if(navigator.getUserMedia === undefined) {
+			navigator.getUserMedia = navigator.mozGetUserMedia || navigator.webkitGetUserMedia; 
+		}
+		
+		navigator.getUserMedia({video: true, audio: false}, callbackSuccess, callbackError);
+		
+		function callbackSuccess(stream) {
+			video.src = URL.createObjectURL(stream);
+			
+			setInterval( appendImage, 1000);
+		}
+		
+		function callbackError(err) {
+			console.log(err);
+		}
+		
+		video.addEventListener('click', appendImage);
+		
+		function appendImage() {
+			var image = document.createElement('img');
+			image.src = getPicture();
+			
+			document.body.appendChild(image);
+		}
+		
+		function getPicture() {
+			var canvas = document.createElement('canvas');
+			
+			var aspectRatio = video.videoWidth/video.videoHeight;
+			canvas.width = 320;
+			canvas.height = canvas.width / aspectRatio;
+			
+			var ctx = canvas.getContext('2d');
+			ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+						
+			return canvas.toDataURL('image/jpeg');
+		}
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>CSS Filters ala Instagram</title>
+	<script src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+
+
+	<style>
+		.f1 {
+			filter: grayscale(100%);
+		}
+		.f2 {
+			filter: sepia(100%);
+		}
+		.f3 {
+			filter: blur(5px);
+		}
+
+
+
+	</style>
+</head>
+<body>
+	<video id='video1'></video>
+	<div id='debug'></div>
+	
+	<form>
+		<input type="radio">op1
+		<input type="radio">op2
+		<input type="radio">op3
+	</form>
+
+	<script>
+		var debug = document.getElementById('debug');
+		
+		function changeFilter(name) {
+			video1.className = name;
+		}		
+		
+		$('input:radio').onchange = function() {
+			debug.textContent = this.textContent;	
+		};
+		
+	</script>
+</body>
+</html>

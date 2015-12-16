@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>WebCam</title>
+</head>
+<body>
+	<video autoplay></video>
+	<script>
+		
+		navigator.mediaDevices.getUserMedia({audio: true, video: true}).then(
+			function(stream) {				
+				var video = document.querySelector('video');
+				video.srcObject = stream;		
+			});
+		
+	</script>
+</body>
+</html>
